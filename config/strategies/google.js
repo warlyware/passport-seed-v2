@@ -8,7 +8,20 @@ module.exports = function() {
     clientSecret: process.env.GOOGLE_SECRET,
     callbackURL: 'http://localhost:3000/auth/google/callback'},
     function(req, accessToken, refreshToken, profile, done) {
-        done(null, profile);
+        var user = {
+          email: profile.emails[0].value,
+          image: profile._json.image.url,
+          displayName: profile.displayName,
+
+          google: {
+            id: profile.id,
+            token: accessToken
+          }
+
+
+        };
+
+        done(null, user);
     }
   ));
 

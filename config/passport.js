@@ -14,5 +14,5 @@ module.exports = function(app) {
   });
 
   require('./strategies/google')();
-
+  require('./strategies/twitter')();
 };

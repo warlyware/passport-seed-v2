@@ -21,7 +21,8 @@ module.exports = function() {
 
         };
 
-        done(null, user);
+
+        done(null, profile);
     }
   ));
 
